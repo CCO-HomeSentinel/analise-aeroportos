@@ -1,22 +1,24 @@
 -- Criação da tabela data
-CREATE TABLE data (
+CREATE TABLE dim_data (
     id INT PRIMARY KEY AUTO_INCREMENT,
     dataCompleta DATETIME,
     ano VARCHAR(45),
     mes VARCHAR(45),
     dia VARCHAR(45),
-    hora VARCHAR(45)
+    hora VARCHAR(45),
+    minuto VARCHAR(45),
+    segundo VARCHAR(45),
 );
 
 -- Criação da tabela estado
-CREATE TABLE estado (
+CREATE TABLE dim_estado (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     sigla VARCHAR(45)
 );
 
 -- Criação da tabela cidade
-CREATE TABLE cidade (
+CREATE TABLE dim_cidade (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     estado_id INT,
@@ -24,7 +26,7 @@ CREATE TABLE cidade (
 );
 
 -- Criação da tabela aeroporto
-CREATE TABLE aeroporto (
+CREATE TABLE dim_aeroporto (
     id INT PRIMARY KEY AUTO_INCREMENT,
     icao VARCHAR(45),
     nome VARCHAR(45),
@@ -33,7 +35,7 @@ CREATE TABLE aeroporto (
 );
 
 -- Criação da tabela empresa_aerea
-CREATE TABLE empresa_aerea (
+CREATE TABLE dim_empresa_aerea (
     id INT PRIMARY KEY AUTO_INCREMENT,
     icao VARCHAR(45),
     nome VARCHAR(45)
@@ -70,6 +72,7 @@ CREATE TABLE fato_reclamacao (
     id INT PRIMARY KEY AUTO_INCREMENT,
     data_abertura VARCHAR(45),
     data_finalizacao VARCHAR(45),
+    nome_fantasia VARCHAR(80),
     assunto VARCHAR(45),
     grupo_problema VARCHAR(45),
     situacao VARCHAR(45),
